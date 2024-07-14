@@ -202,24 +202,6 @@ function log {
 
 # Функция проверки операционной системы
 # Return: $(check_os)
-function check_os() {
-    if [ -f /etc/os-release ]; then
-        source /etc/os-release
-        if [ "$ID" = "ubuntu" ]; then
-            if [ "$VERSION_ID" = "20.04" ]; then
-                OS_NAME="Ubuntu 20.04"
-                elif [ "$VERSION_ID" = "22.04" ]; then
-                OS_NAME="Ubuntu 22.04"
-                elif [ "$VERSION_ID" = "24.04" ]; then
-                OS_NAME="Ubuntu 24.04"
-            else
-                log error "$(extract_tips "h_check_os_wrong")"
-            fi
-        else
-            log error "$(extract_tips "h_check_os_wrong")"
-        fi
-    fi
-}
 
 function check_arch() {
     if [ "$(uname -m)" == "x86_64" ]; then
